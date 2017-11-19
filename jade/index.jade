@@ -1,0 +1,46 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        - const [title, description, keywords] = ['james测试首页', 'james-EF', 'james,EF']
+        title #{title}
+        meta(description='#{description}')
+        meta(keywords='#{keywords}')
+        link(
+            rel='stylesheet',
+            href='../sass/css.css'
+        )
+    body
+        //- head部分
+        .header
+            #nav
+                - const navList = ['jamesSky Github Test', '', '首页', '发现', '专题', '关于']
+                each item in navList
+                    span= item
+        //- content内容
+        mixin contentWrap(param)
+            #wrap
+                +content(param)
+        mixin content(param)
+            ul.content
+                each item in param
+                    li
+                        p.contentTitle #{item.title}
+                        .contentMain #{item.content}
+        +contentWrap(
+            [{
+                title: '为什么只有浏览器（或JS）是有所谓的同源策略？',
+                content: '因为浏览器是公共环境，App 是私有环境。 公共环境的基本规则就是不要把手伸进别人的口袋。 私有环境就没那么多限制了，你把你手申请你女朋友衣服里都没人管。 哦，我忘了你没有女朋友。'
+            }, {
+                title: '为什么只有浏览器（或JS）是有所谓的同源策略？',
+                content: '因为浏览器是公共环境，App 是私有环境。 公共环境的基本规则就是不要把手伸进别人的口袋。 私有环境就没那么多限制了，你把你手申请你女朋友衣服里都没人管。 哦，我忘了你没有女朋友。'
+            },{
+                title: '为什么只有浏览器（或JS）是有所谓的同源策略？',
+                content: '因为浏览器是公共环境，App 是私有环境。 公共环境的基本规则就是不要把手伸进别人的口袋。 私有环境就没那么多限制了，你把你手申请你女朋友衣服里都没人管。 哦，我忘了你没有女朋友。'
+            }]
+        )
+
+        //- footer
+        .footer
+            p EMAIL: 1511877674@qq.com
+
